@@ -1,0 +1,5 @@
+.projects-page {
+  padding-top: 60px; /* Navbar height */
+  display: flex;
+  background: #f8fafc;
+}
