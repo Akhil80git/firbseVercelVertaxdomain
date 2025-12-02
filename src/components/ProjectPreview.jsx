@@ -10,7 +10,7 @@ const ProjectPreview = ({ project, viewMode = 'desktop' }) => {
 
   return (
     <div className={`preview-container ${viewMode}`}>
-      {/* Beautiful Loading Animation */}
+      {/* Loading Animation */}
       {loading && (
         <div className="loading-overlay">
           <div className="spinner"></div>
@@ -22,23 +22,44 @@ const ProjectPreview = ({ project, viewMode = 'desktop' }) => {
         src={project.url}
         title={project.short}
         className="preview-iframe"
+        allow="geolocation; microphone; camera"
         allowFullScreen
-        sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-modals"
+        sandbox="
+          allow-same-origin
+          allow-scripts
+          allow-popups
+          allow-forms
+          allow-modals
+          allow-geolocation
+        "
         onLoad={(e) => {
           setLoading(false);
+
           // Scrollbar hide karne ka magic
           try {
             const doc = e.target.contentDocument;
             if (doc) {
               const style = doc.createElement('style');
               style.textContent = `
-                html,body{margin:0;padding:0;overflow-x:hidden;overflow-y:auto}
-                ::-webkit-scrollbar{display:none;width:0;height:0}
-                *{scrollbar-width:none;-ms-overflow-style:none}
+                html, body {
+                  margin: 0;
+                  padding: 0;
+                  overflow-x: hidden;
+                  overflow-y: auto;
+                }
+                ::-webkit-scrollbar {
+                  display: none;
+                }
+                * {
+                  scrollbar-width: none;
+                  -ms-overflow-style: none;
+                }
               `;
               doc.head.appendChild(style);
             }
-          } catch (e) {}
+          } catch (err) {
+            // Agar cross-origin ho to ignore
+          }
         }}
       />
     </div>
