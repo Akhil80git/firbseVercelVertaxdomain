@@ -12,5 +12,5 @@ export const projects = [
   { id: 11, short: "Cosmic",       url: "https://akhil80git.github.io/desigenWeb/" },
   { id: 12, short: "NatureView",   url: "https://akhil80git.github.io/styleWebsite/" },
   { id: 13, short: "NikhilPort",   url: "https://nikhiladvansfullsite.vercel.app/" },
-  { id: 14, short: "freeCodeCamp", url: "https://www.freecodecamp.org/certification/fcc-2cf90b9c-978d-4e83-b279-b364567a9a4b/responsive-web-design" },
+  { id: 14, short: "freeCodeCamp", url: "https://https://vertax.online/" },
 ];
