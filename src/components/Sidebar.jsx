@@ -4,43 +4,41 @@ import './Sidebar.css';
 const Sidebar = ({ selectedProject, onProjectSelect, viewMode, setViewMode }) => {
   return (
     <div className="sidebar">
+      {/* Title */}
       <h3>Projects</h3>
 
+      {/* Scrollable Project List */}
       <div className="sidebar-scrollable">
         <div className="sidebar-list">
           {projects.map((project) => (
-            <div
+            <button
               key={project.id}
-              className={`sidebar-row ${selectedProject?.id === project.id ? 'active' : ''}`}
+              className={`sidebar-item ${selectedProject?.id === project.id ? 'active' : ''}`}
+              onClick={() => onProjectSelect(project)}
             >
-              {/* LEFT: Project Select */}
-              <button
-                className="sidebar-item"
-                onClick={() => onProjectSelect(project)}
-              >
-                <span className="item-number">
-                  {project.id.toString().padStart(2, '0')}
-                </span>
-                <span className="item-title">{project.short}</span>
-              </button>
+              <span className="item-number">
+                {project.id.toString().padStart(2, '0')}
+              </span>
 
-              {/* RIGHT: Run in Browser */}
-              <button
-                className="run-btn"
-                title="Open in Browser"
+              <span className="item-title">{project.short}</span>
+
+              {/* Browser icon on the right */}
+              <span
+                className="run-icon"
+                title="Open in browser"
                 onClick={(e) => {
-                  e.stopPropagation(); // important
+                  e.stopPropagation(); // Prevent project select
                   window.open(project.url, '_blank');
                 }}
               >
                 🌐
-              </button>
-            </div>
+              </span>
+            </button>
           ))}
         </div>
       </div>
 
-      {/* Bottom Toggle */}
+      {/* Fixed Bottom Toggle */}
       <div className="device-toggle-fixed">
         <button
           className={`device-btn ${viewMode === 'desktop' ? 'active' : ''}`}
