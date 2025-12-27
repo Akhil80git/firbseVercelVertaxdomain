@@ -4,28 +4,43 @@ import './Sidebar.css';
 const Sidebar = ({ selectedProject, onProjectSelect, viewMode, setViewMode }) => {
   return (
     <div className="sidebar">
-      {/* Title */}
       <h3>Projects</h3>
 
-      {/* Scrollable Project List */}
       <div className="sidebar-scrollable">
         <div className="sidebar-list">
           {projects.map((project) => (
-            <button
+            <div
               key={project.id}
-              className={`sidebar-item ${selectedProject?.id === project.id ? 'active' : ''}`}
-              onClick={() => onProjectSelect(project)}
+              className={`sidebar-row ${selectedProject?.id === project.id ? 'active' : ''}`}
             >
-              <span className="item-number">
-                {project.id.toString().padStart(2, '0')}
-              </span>
-              <span className="item-title">{project.short}</span>
-            </button>
+              {/* LEFT: Project Select */}
+              <button
+                className="sidebar-item"
+                onClick={() => onProjectSelect(project)}
+              >
+                <span className="item-number">
+                  {project.id.toString().padStart(2, '0')}
+                </span>
+                <span className="item-title">{project.short}</span>
+              </button>
+
+              {/* RIGHT: Run in Browser */}
+              <button
+                className="run-btn"
+                title="Open in Browser"
+                onClick={(e) => {
+                  e.stopPropagation(); // important
+                  window.open(project.url, '_blank');
+                }}
+              >
+                🌐
+              </button>
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Fixed Bottom Toggle — Ye hamesha neeche rahega */}
+      {/* Bottom Toggle */}
       <div className="device-toggle-fixed">
         <button
           className={`device-btn ${viewMode === 'desktop' ? 'active' : ''}`}
