@@ -4,13 +4,29 @@ import './ProjectPreview.css';
 const ProjectPreview = ({ project, viewMode = 'desktop' }) => {
   const [loading, setLoading] = useState(true);
 
+  // 🔹 FIRST TIME WELCOME SCREEN
   if (!project) {
-    return <div className="preview-placeholder">Select a project to preview</div>;
+    return (
+      <div className={`preview-container ${viewMode}`}>
+        <div className="preview-placeholder">
+          <h1>👋 Welcome Akhilesh</h1>
+          <p>Welcome to my project preview panel</p>
+
+          <ul>
+            <li>⬅ Left side se project select karein</li>
+            <li>🖥 Desktop / 📱 Mobile view switch karein</li>
+            <li>🌐 Live project preview dekhein</li>
+          </ul>
+
+          <span>👉 Start karne ke liye kisi project par click karein</span>
+        </div>
+      </div>
+    );
   }
 
+  // 🔹 PROJECT PREVIEW
   return (
     <div className={`preview-container ${viewMode}`}>
-      {/* Loading Animation */}
       {loading && (
         <div className="loading-overlay">
           <div className="spinner"></div>
@@ -22,8 +38,8 @@ const ProjectPreview = ({ project, viewMode = 'desktop' }) => {
         src={project.url}
         title={project.short}
         className="preview-iframe"
+        onLoad={() => setLoading(false)}
         allow="geolocation; microphone; camera"
-        allowFullScreen
         sandbox="
           allow-same-origin
           allow-scripts
@@ -32,35 +48,6 @@ const ProjectPreview = ({ project, viewMode = 'desktop' }) => {
           allow-modals
           allow-geolocation
         "
-        onLoad={(e) => {
-          setLoading(false);
-
-          // Scrollbar hide karne ka magic
-          try {
-            const doc = e.target.contentDocument;
-            if (doc) {
-              const style = doc.createElement('style');
-              style.textContent = `
-                html, body {
-                  margin: 0;
-                  padding: 0;
-                  overflow-x: hidden;
-                  overflow-y: auto;
-                }
-                ::-webkit-scrollbar {
-                  display: none;
-                }
-                * {
-                  scrollbar-width: none;
-                  -ms-overflow-style: none;
-                }
-              `;
-              doc.head.appendChild(style);
-            }
-          } catch (err) {
-            // Agar cross-origin ho to ignore
-          }
-        }}
       />
     </div>
   );
