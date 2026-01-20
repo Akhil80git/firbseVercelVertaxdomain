@@ -14,7 +14,7 @@ export const projects = [
   { id: 13, short: "NikhilPort",   url: "https://nikhiladvansfullsite.vercel.app/" },
 
   // Existing
-  { id: 14, short: "Vertax",       url: "https://vertax.online/" },
+  { id: 14, short: "sasproject",       url: "https://tanneidfirstp.onrender.com/" },
 
   // 🔽 Newly Added Projects
   { id: 15, short: "MPLLopp",      url: "https://mpllopp.netlify.app/" },
@@ -36,6 +36,6 @@ export const projects = [
 
   // Firebase & Custom Domain
   { id: 31, short: "ReactGym",     url: "https://reactgymfirebace.firebaseapp.com/" },
-  { id: 32, short: "OPLOTP",       url: "https://oplotp.firebaseapp.com/" },
+  { id: 32, short: "OTP",       url: "https://oplotp.firebaseapp.com/" },
   { id: 33, short: "EasyStudy",    url: "https://easystudyacademy.com/" },
 ];
