@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Login</title>
+</head>
+<body>
+
+<button onclick="loginWithGoogle()">Login with Google</button>
+
+<div id="userData" style="display:none; margin-top:20px;">
+  <img id="userImg" width="80" style="border-radius:50%"><br><br>
+  <h3 id="userName"></h3>
+  <p id="userEmail"></p>
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAXlOuGYL259Q9f8Jl6Ie87IaMKjva4BRA",
+  authDomain: "firbsehello.firebaseapp.com",
+  projectId: "firbsehello",
+  storageBucket: "firbsehello.firebasestorage.app",
+  messagingSenderId: "456070756525",
+  appId: "1:456070756525:web:eeb257971190bce849ee24"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+window.loginWithGoogle = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+
+    // Show UI
+    document.getElementById("userData").style.display = "block";
+    document.getElementById("userName").innerText = user.displayName;
+    document.getElementById("userEmail").innerText = user.email;
+    document.getElementById("userImg").src = user.photoURL;
+
+  } catch (error) {
+    console.log(error);
+    alert("Login Failed");
+  }
+};
+
+</script>
+
+</body>
+</html>
