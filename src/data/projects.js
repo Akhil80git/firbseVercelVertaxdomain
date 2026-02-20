@@ -12,11 +12,7 @@ export const projects = [
   { id: 11, short: "Cosmic",       url: "https://akhil80git.github.io/desigenWeb/" },
   { id: 12, short: "NatureView",   url: "https://akhil80git.github.io/styleWebsite/" },
   { id: 13, short: "NikhilPort",   url: "https://nikhiladvansfullsite.vercel.app/" },
-
-  // Existing
-  { id: 14, short: "sasproject",       url: "https://tanneidfirstp.onrender.com/" },
-
-  // 🔽 Newly Added Projects
+  { id: 14, short: "sasproject",   url: "https://tanneidfirstp.onrender.com/" },
   { id: 15, short: "MPLLopp",      url: "https://mpllopp.netlify.app/" },
   { id: 16, short: "MZMSSN",       url: "https://mzmssn.netlify.app/" },
   { id: 17, short: "GymTrac",      url: "https://gymtrac.netlify.app/" },
@@ -33,12 +29,26 @@ export const projects = [
   { id: 28, short: "GHPLO",        url: "https://ghplo.netlify.app/" },
   { id: 29, short: "YBXKJ",        url: "https://ybxkj.netlify.app/" },
   { id: 30, short: "TYMX",         url: "https://tymx.netlify.app/" },
-
-  // Firebase & Custom Domain
   { id: 31, short: "ReactGym",     url: "https://reactgymfirebace.firebaseapp.com/" },
-  { id: 32, short: "OTP",       url: "https://oplotp.firebaseapp.com/" },
+  { id: 32, short: "OTP",          url: "https://oplotp.firebaseapp.com/" },
   { id: 33, short: "EasyStudy",    url: "https://easystudyacademy.com/" },
-  { id: 34, short: "vertx",    url: "https://www.vertax.online/" },
-   { id: 35, short: "vertx1",    url: "https://vertax.online/" },
-   { id: 36, short: "vertx2",    url: "https://firbse-vercel-vertaxdomain.vercel.app/" },
+  { id: 34, short: "vertx",        url: "https://www.vertax.online/" },
+  { id: 35, short: "vertx1",       url: "https://vertax.online/" },
+  { id: 36, short: "vertx2",       url: "https://firbse-vercel-vertaxdomain.vercel.app/" },
+
+  // 🔽 Newly Added (Unique Only)
+  { id: 37, short: "RTRT",         url: "https://rtrt-five.vercel.app/" },
+  { id: 38, short: "QRust",        url: "https://q-rust-alpha.vercel.app/" },
+  { id: 39, short: "DFS",          url: "https://dfsddf.vercel.app/" },
+  { id: 40, short: "M46",          url: "https://m46.vercel.app/" },
+  { id: 41, short: "TailwindChi",  url: "https://tailwind-chi-black.vercel.app/" },
+  { id: 42, short: "GPSCodePen",   url: "https://gpscodpen.vercel.app/" },
+  { id: 43, short: "Marksheet2",   url: "https://marksheetprint2.vercel.app/" },
+  { id: 44, short: "FDS1MMM",      url: "https://fdsdf-1mmm.vercel.app/" },
+  { id: 45, short: "CalculatorOP", url: "https://calculator-omega-pearl.vercel.app/" },
+  { id: 46, short: "Tromnb",       url: "https://tromnb.vercel.app/" },
+  { id: 47, short: "ZUmber",       url: "https://z-umber-three.vercel.app/" },
+  { id: 48, short: "FistReattest", url: "https://fist-reattest-pumq.vercel.app/" },
+  { id: 49, short: "AllProject",   url: "https://allproject-pi.vercel.app/" },
+  { id: 50, short: "YutOmega",     url: "https://yut-omega.vercel.app/" },
 ];
