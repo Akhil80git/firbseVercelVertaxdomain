@@ -38,4 +38,7 @@ export const projects = [
   { id: 31, short: "ReactGym",     url: "https://reactgymfirebace.firebaseapp.com/" },
   { id: 32, short: "OTP",       url: "https://oplotp.firebaseapp.com/" },
   { id: 33, short: "EasyStudy",    url: "https://easystudyacademy.com/" },
+  { id: 34, short: "vertx",    url: "https://www.vertax.online/" },
+   { id: 35, short: "vertx1",    url: "https://vertax.online/" },
+   { id: 36, short: "vertx2",    url: "https://firbse-vercel-vertaxdomain.vercel.app/" },
 ];
