@@ -1,54 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Google Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Login - First Project</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-slate-900 text-white flex items-center justify-center h-screen">
 
-<button onclick="loginWithGoogle()">Login with Google</button>
+  <div class="bg-slate-800 p-8 rounded-xl shadow-2xl text-center border border-slate-700 w-96">
+    <h2 class="text-2xl font-bold mb-6 text-blue-400">Firebase Auth</h2>
+    
+    <button id="loginBtn" class="flex items-center justify-center w-full bg-white text-gray-700 font-semibold py-2 px-4 rounded-lg hover:bg-gray-100 transition duration-200">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="w-5 h-5 mr-2">
+      Sign in with Google
+    </button>
 
-<div id="userData" style="display:none; margin-top:20px;">
-  <img id="userImg" width="80" style="border-radius:50%"><br><br>
-  <h3 id="userName"></h3>
-  <p id="userEmail"></p>
-</div>
+    <div id="userData" class="hidden mt-6 animate-fade-in">
+      <img id="userImg" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-blue-500 shadow-lg">
+      <h3 id="userName" class="text-xl font-medium"></h3>
+      <p id="userEmail" class="text-slate-400 text-sm mb-4"></p>
+      <button id="logoutBtn" class="text-sm text-red-400 hover:underline">Sign Out</button>
+    </div>
+  </div>
 
-<script type="module">
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+    // Your specific Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBUDilCEs_PjYShQYLjwQtvcVSszM2WaKo",
+      authDomain: "firstprojectcomback.firebaseapp.com",
+      projectId: "firstprojectcomback",
+      storageBucket: "firstprojectcomback.firebasestorage.app",
+      messagingSenderId: "476482714411",
+      appId: "1:476482714411:web:4cb61e2fc990c85aeda36e",
+      measurementId: "G-G3LECQ499G"
+    };
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAXlOuGYL259Q9f8Jl6Ie87IaMKjva4BRA",
-  authDomain: "firbsehello.firebaseapp.com",
-  projectId: "firbsehello",
-  storageBucket: "firbsehello.firebasestorage.app",
-  messagingSenderId: "456070756525",
-  appId: "1:456070756525:web:eeb257971190bce849ee24"
-};
+    // Initialize
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const userDataDiv = document.getElementById("userData");
 
-window.loginWithGoogle = async () => {
-  try {
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
+    // Login Logic
+    loginBtn.addEventListener("click", async () => {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
 
-    // Show UI
-    document.getElementById("userData").style.display = "block";
-    document.getElementById("userName").innerText = user.displayName;
-    document.getElementById("userEmail").innerText = user.email;
-    document.getElementById("userImg").src = user.photoURL;
+        // Display Data
+        document.getElementById("userName").innerText = user.displayName;
+        document.getElementById("userEmail").innerText = user.email;
+        document.getElementById("userImg").src = user.photoURL;
+        
+        userDataDiv.classList.remove("hidden");
+        loginBtn.classList.add("hidden");
+      } catch (error) {
+        console.error("Auth Error:", error);
+        alert("Check if Google Auth is enabled in Firebase Console.");
+      }
+    });
 
-  } catch (error) {
-    console.log(error);
-    alert("Login Failed");
-  }
-};
-
-</script>
+    // Logout Logic
+    logoutBtn.addEventListener("click", () => {
+      signOut(auth).then(() => {
+        userDataDiv.classList.add("hidden");
+        loginBtn.classList.remove("hidden");
+      });
+    });
+  </script>
 
 </body>
 </html>
