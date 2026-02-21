@@ -32,9 +32,9 @@ const About = () => {
         </h1>
         <p className="tagline">Full Stack Developer • UI/UX Enthusiast • Pixel Perfect Coder</p>
         <p className="bio">
-          Main wo banda hun jo raat ko 3 baje bhi code kar raha hota hun jab dunia so rahi hoti hai.  
+           
           Modern, blazing-fast aur jaw-dropping websites banata hun jo sirf dikne mein nahi,  
-          perform bhi karte hain. Har project mein thodi si jaan daal deta hun
+          perform bhi ultra luxury 
         </p>
         <div className="social-buttons">
           <a href="https://github.com/akhil80git" target="_blank" className="btn-gh">GitHub</a>
