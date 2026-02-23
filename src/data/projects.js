@@ -40,7 +40,7 @@ export const projects = [
 
   { id: 37, short: "RTRT",         url: "https://rtrt-five.vercel.app/" },
   { id: 38, short: "QRust",        url: "https://q-rust-alpha.vercel.app/" },
-  { id: 39, short: "DFS",          url: "https://dfsddf.vercel.app/" },
+  { id: 39, short: "proxy",          url: "https://dfsddf.vercel.app/" },
   { id: 40, short: "M46",          url: "https://m46.vercel.app/" },
   { id: 41, short: "TailwindChi",  url: "https://tailwind-chi-black.vercel.app/" },
   { id: 42, short: "GPSCodePen",   url: "https://gpscodpen.vercel.app/" },
